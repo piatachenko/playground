@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-white transition-all bg-[url(https://play.tailwindcss.com/img/grid.svg)] bg-fixed fill-neutral-800 text-neutral-800 dark:bg-[#050505] dark:fill-neutral-300 dark:text-neutral-300;
+}

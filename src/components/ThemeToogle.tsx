@@ -16,7 +16,10 @@ export default function ThemeToogle() {
   }
   return (
     <>
-      <button className="ml-auto mr-10" onClick={handleThemeSwitch}>
+      <button
+        className="text-neutral-800 dark:text-neutral-300"
+        onClick={handleThemeSwitch}
+      >
         <span className="hidden dark:block">
           <svg
             xmlns="http://www.w3.org/2000/svg"

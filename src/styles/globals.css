@@ -3,14 +3,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/*Scrollbar*/
 ::-webkit-scrollbar {
   @apply hidden;
 }
-
 body::-webkit-scrollbar {
   @apply block w-2;
 }
-
 body::-webkit-scrollbar-thumb {
   @apply rounded-full bg-neutral-700/20 hover:bg-neutral-700/60;
+}
+
+/*Theme Toggle*/
+.moon {
+  stroke-dashoffset: 75;
+  stroke-dasharray: 75;
+}
+@keyframes fadeInMoon {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fadeInStar {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInBeam {
+  to {
+    @apply scale-100 opacity-100;
+  }
+}
+@keyframes fadeInCircle {
+  to {
+    @apply scale-100 opacity-100;
+  }
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ExpandReveale from "~/components/ExpandReveale";
-import ThemeToogle from "~/components/ThemeToogle";
+import ThemeToggle from "~/components/ThemeToggle";
 
 export default function Navbar() {
   return (
@@ -14,7 +14,7 @@ export default function Navbar() {
             translateXForSecondWord="-3rem"
           />
         </Link>
-        <ThemeToogle />
+        <ThemeToggle />
       </nav>
     </>
   );

@@ -4,7 +4,7 @@ interface CustomCSSProperties extends CSSProperties {
   "--delay"?: string;
 }
 
-interface EmergeLogoProps {
+interface ExpandRevealeProps {
   text: string;
   initialValue: number;
   interval: number;
@@ -20,7 +20,7 @@ interface EmergeLogoProps {
   translateXForTenthWord?: string;
 }
 
-export default function EmergeLogo({
+export default function ExpandReveale({
   text,
   initialValue,
   interval,
@@ -34,7 +34,7 @@ export default function EmergeLogo({
   translateXForEighthWord,
   translateXForNinthWord,
   translateXForTenthWord,
-}: EmergeLogoProps) {
+}: ExpandRevealeProps) {
   const allWords = text.split(" ");
 
   const translateX = [

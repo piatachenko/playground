@@ -1,6 +1,5 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import ExpandReveale from "~/components/ExpandReveale";
 import GlowHoverButton from "~/components/GlowHoverButton";
 import GrowArrow from "~/components/GrowArrow";

@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { type CSSProperties } from "react";
 
 interface CustomCSSProperties extends CSSProperties {
   "--delay"?: string;
@@ -55,6 +55,7 @@ export default function ExpandReveale({
       <div className="group flex gap-3 overflow-y-clip text-3xl font-semibold uppercase">
         {Array.from(allWords.keys()).map((wordIndex) => (
           <div
+            key={wordIndex}
             className="flex translate-x-[--x] text-neutral-800 transition-transform duration-[.8s] group-hover:translate-x-0 group-hover:delay-0 group-[(:hover)]:delay-[.35s] dark:text-neutral-300"
             style={{ "--x": `${translateX[wordIndex]}` } as CustomCSSProperties}
           >
@@ -62,6 +63,7 @@ export default function ExpandReveale({
               Array.from(allWords[wordIndex]!.split("").keys()).map(
                 (letterIndex) => (
                   <span
+                    key={letterIndex}
                     className={
                       letterIndex === 0
                         ? ""

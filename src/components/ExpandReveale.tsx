@@ -24,16 +24,16 @@ export default function ExpandReveale({
   text,
   initialValue,
   interval,
-  translateXForFirstWord,
-  translateXForSecondWord,
-  translateXForThirdWord,
-  translateXForFourthWord,
-  translateXForFifthWord,
-  translateXForSixthWord,
-  translateXForSeventhWord,
-  translateXForEighthWord,
-  translateXForNinthWord,
-  translateXForTenthWord,
+  translateXForFirstWord = "",
+  translateXForSecondWord = "",
+  translateXForThirdWord = "",
+  translateXForFourthWord = "",
+  translateXForFifthWord = "",
+  translateXForSixthWord = "",
+  translateXForSeventhWord = "",
+  translateXForEighthWord = "",
+  translateXForNinthWord = "",
+  translateXForTenthWord = "",
 }: ExpandRevealeProps) {
   const allWords = text.split(" ");
 
@@ -53,35 +53,38 @@ export default function ExpandReveale({
   return (
     <>
       <div className="group flex gap-3 overflow-y-clip text-3xl font-semibold uppercase">
-        {Array.from(allWords.keys()).map((wordIndex) => (
+        {allWords.map((word) => (
           <div
-            key={wordIndex}
+            key={word}
             className="flex translate-x-[--x] text-neutral-800 transition-transform duration-[.8s] group-hover:translate-x-0 group-hover:delay-0 group-[(:hover)]:delay-[.35s] dark:text-neutral-300"
-            style={{ "--x": `${translateX[wordIndex]}` } as CustomCSSProperties}
+            style={
+              {
+                "--x": `${translateX[allWords.indexOf(word)]}`,
+              } as CustomCSSProperties
+            }
           >
-            {!!allWords[wordIndex] &&
-              Array.from(allWords[wordIndex]!.split("").keys()).map(
-                (letterIndex) => (
-                  <span
-                    key={letterIndex}
-                    className={
-                      letterIndex === 0
-                        ? ""
-                        : "block translate-y-full transition-transform duration-[.4s] group-hover:translate-y-0 group-hover:delay-[--delayMouseOver] group-[(:hover)]:delay-[--delayMouseOut]"
-                    }
-                    style={
-                      {
-                        "--delayMouseOver": `calc(${initialValue}s + ${letterIndex} * ${interval}s)`,
-                        "--delayMouseOut": `calc(${initialValue}s + ${
-                          allWords[wordIndex]!.length - letterIndex
-                        } * ${interval}s)`,
-                      } as CustomCSSProperties
-                    }
-                  >
-                    {allWords[wordIndex]?.split("")[letterIndex]}
-                  </span>
-                )
-              )}
+            {!!allWords[allWords.indexOf(word)] &&
+              Array.from(word.split("").keys()).map((letterIndex) => (
+                <span
+                  key={letterIndex}
+                  className={
+                    letterIndex === 0
+                      ? ""
+                      : "block translate-y-full transition-transform duration-[.4s] group-hover:translate-y-0 group-hover:delay-[--delayMouseOver] group-[(:hover)]:delay-[--delayMouseOut]"
+                  }
+                  style={
+                    {
+                      "--delayMouseOver": `calc(${initialValue}s + ${letterIndex} * ${interval}s)`,
+                      "--delayMouseOut": `calc(${initialValue}s + ${
+                        allWords[allWords.indexOf(word)]?.length ||
+                        0 - letterIndex
+                      } * ${interval}s)`,
+                    } as CustomCSSProperties
+                  }
+                >
+                  {allWords[allWords.indexOf(word)]?.split("")[letterIndex]}
+                </span>
+              ))}
           </div>
         ))}
       </div>

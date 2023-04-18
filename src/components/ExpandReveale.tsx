@@ -8,32 +8,32 @@ interface ExpandRevealeProps {
   text: string;
   initialValue: number;
   interval: number;
-  translateXForFirstWord?: string;
-  translateXForSecondWord?: string;
-  translateXForThirdWord?: string;
-  translateXForFourthWord?: string;
-  translateXForFifthWord?: string;
-  translateXForSixthWord?: string;
-  translateXForSeventhWord?: string;
-  translateXForEighthWord?: string;
-  translateXForNinthWord?: string;
-  translateXForTenthWord?: string;
+  translateXForFirstWord?: string | undefined;
+  translateXForSecondWord?: string | undefined;
+  translateXForThirdWord?: string | undefined;
+  translateXForFourthWord?: string | undefined;
+  translateXForFifthWord?: string | undefined;
+  translateXForSixthWord?: string | undefined;
+  translateXForSeventhWord?: string | undefined;
+  translateXForEighthWord?: string | undefined;
+  translateXForNinthWord?: string | undefined;
+  translateXForTenthWord?: string | undefined;
 }
 
 export default function ExpandReveale({
   text,
   initialValue,
   interval,
-  translateXForFirstWord = '',
-  translateXForSecondWord = '',
-  translateXForThirdWord = '',
-  translateXForFourthWord = '',
-  translateXForFifthWord = '',
-  translateXForSixthWord = '',
-  translateXForSeventhWord = '',
-  translateXForEighthWord = '',
-  translateXForNinthWord = '',
-  translateXForTenthWord = '',
+  translateXForFirstWord,
+  translateXForSecondWord,
+  translateXForThirdWord,
+  translateXForFourthWord,
+  translateXForFifthWord,
+  translateXForSixthWord,
+  translateXForSeventhWord,
+  translateXForEighthWord,
+  translateXForNinthWord,
+  translateXForTenthWord,
 }: ExpandRevealeProps) {
   const allWords = text.split(" ");
 

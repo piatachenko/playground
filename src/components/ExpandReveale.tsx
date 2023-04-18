@@ -8,16 +8,16 @@ interface ExpandRevealeProps {
   text: string;
   initialValue: number;
   interval: number;
-  translateXForFirstWord?: string | undefined;
-  translateXForSecondWord?: string | undefined;
-  translateXForThirdWord?: string | undefined;
-  translateXForFourthWord?: string | undefined;
-  translateXForFifthWord?: string | undefined;
-  translateXForSixthWord?: string | undefined;
-  translateXForSeventhWord?: string | undefined;
-  translateXForEighthWord?: string | undefined;
-  translateXForNinthWord?: string | undefined;
-  translateXForTenthWord?: string | undefined;
+  translateXForFirstWord?: string;
+  translateXForSecondWord?: string;
+  translateXForThirdWord?: string;
+  translateXForFourthWord?: string;
+  translateXForFifthWord?: string;
+  translateXForSixthWord?: string;
+  translateXForSeventhWord?: string;
+  translateXForEighthWord?: string;
+  translateXForNinthWord?: string;
+  translateXForTenthWord?: string;
 }
 
 export default function ExpandReveale({
@@ -57,7 +57,7 @@ export default function ExpandReveale({
           <div
             key={wordIndex}
             className="flex translate-x-[--x] text-neutral-800 transition-transform duration-[.8s] group-hover:translate-x-0 group-hover:delay-0 group-[(:hover)]:delay-[.35s] dark:text-neutral-300"
-            style={{ "--x": `${translateX[wordIndex]}` } as CustomCSSProperties}
+            style={{ "--x": `${translateX[wordIndex] ?? ''}` } as CustomCSSProperties}
           >
             {!!word &&
               (word.split("")).map(
